@@ -33,12 +33,5 @@ namespace Jasper.Bus.Transports.New
             return _queue.Enqueue(envelope);
         }
 
-        public Task Send(Envelope envelope)
-        {
-            throw new NotSupportedException();
-        }
-
-        public bool SupportsSend { get; } = false;
-        public string TransportScheme { get; } = "loopback";
     }
 }

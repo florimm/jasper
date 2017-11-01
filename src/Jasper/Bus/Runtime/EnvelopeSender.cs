@@ -122,14 +122,7 @@ namespace Jasper.Bus.Runtime
             sending.Destination = address;
             sending.ReplyUri = transport.DefaultReplyUri();
 
-            if (callback == null || !callback.SupportsSend && callback.TransportScheme == sending.Destination.Scheme)
-            {
-                await transport.Send(sending, sending.Destination).ConfigureAwait(false);
-            }
-            else
-            {
-                await callback.Send(sending).ConfigureAwait(false);
-            }
+            await transport.Send(sending, sending.Destination).ConfigureAwait(false);
         }
 
         private static async Task sendToStaticChannel(IMessageCallback callback, Envelope sending, IChannel channel)
@@ -137,14 +130,7 @@ namespace Jasper.Bus.Runtime
             sending.Destination = channel.Destination;
             sending.ReplyUri = channel.ReplyUri;
 
-            if (callback == null || !callback.SupportsSend && callback.TransportScheme == sending.Destination.Scheme)
-            {
-                await channel.Send(sending).ConfigureAwait(false);
-            }
-            else
-            {
-                await callback.Send(sending).ConfigureAwait(false);
-            }
+            await channel.Send(sending).ConfigureAwait(false);
         }
 
     }

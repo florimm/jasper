@@ -58,13 +58,6 @@ namespace Jasper.Bus.Transports.New
                 return _parent.Enqueue(envelope);
             }
 
-            public Task Send(Envelope envelope)
-            {
-                throw new NotImplementedException();
-            }
-
-            public bool SupportsSend { get; }
-            public string TransportScheme { get; } = "whatever";
         }
     }
 

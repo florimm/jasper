@@ -30,15 +30,6 @@ namespace Jasper.Bus.Transports.Lightweight
             return Task.CompletedTask;
         }
 
-        public Task Send(Envelope envelope)
-        {
-            // nothing
-            return Task.CompletedTask;
-        }
-
-        public bool SupportsSend { get; } = false;
-        public string TransportScheme => "retries";
-
         public Task Requeue(Envelope envelope)
         {
             var clone = envelope.Clone();
