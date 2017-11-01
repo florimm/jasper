@@ -14,7 +14,7 @@ namespace Jasper.Bus.Transports.Core
             Messages = messagesList;
         }
 
-        public Uri Destination { get; set; }
+        public Uri Destination { get; }
 
         public IList<Envelope> Messages { get; }
 
