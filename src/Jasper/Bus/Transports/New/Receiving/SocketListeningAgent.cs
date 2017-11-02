@@ -6,7 +6,7 @@ using System.Threading.Tasks.Dataflow;
 using Jasper.Bus.Transports.Core;
 using Jasper.Util;
 
-namespace Jasper.Bus.Transports.New
+namespace Jasper.Bus.Transports.New.Receiving
 {
     public class SocketListeningAgent : IListeningAgent
     {

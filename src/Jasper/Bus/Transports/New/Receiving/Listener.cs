@@ -3,7 +3,7 @@ using Jasper.Bus.Logging;
 using Jasper.Bus.Runtime;
 using Jasper.Bus.Transports.Core;
 
-namespace Jasper.Bus.Transports.New
+namespace Jasper.Bus.Transports.New.Receiving
 {
     // Will be completely independent of any kind of retry or work
     // stealing agent

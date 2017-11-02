@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading;
+using Jasper.Bus.Logging;
+using Jasper.Bus.Transports.New.Sending;
 
 namespace Jasper.Bus.Transports.New.Transports
 {

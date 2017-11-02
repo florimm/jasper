@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Jasper.Bus.Runtime;
 
-namespace Jasper.Bus.Transports.New
+namespace Jasper.Bus.Transports.New.Sending
 {
     public interface ISendingAgent : IDisposable
     {

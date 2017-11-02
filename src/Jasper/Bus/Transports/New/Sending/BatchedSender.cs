@@ -6,7 +6,7 @@ using Jasper.Bus.Runtime;
 using Jasper.Bus.Transports.Core;
 using Jasper.Bus.Transports.Util;
 
-namespace Jasper.Bus.Transports.New
+namespace Jasper.Bus.Transports.New.Sending
 {
     public class BatchedSender : ISender
     {

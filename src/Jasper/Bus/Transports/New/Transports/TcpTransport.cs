@@ -6,7 +6,10 @@ using Baseline;
 using Jasper.Bus.Logging;
 using Jasper.Bus.Transports.Configuration;
 using Jasper.Bus.Transports.Core;
+using Jasper.Bus.Transports.New.Receiving;
+using Jasper.Bus.Transports.New.Sending;
 using Jasper.Util;
+using Listener = Jasper.Bus.Transports.New.Receiving.Listener;
 
 namespace Jasper.Bus.Transports.New.Transports
 {
