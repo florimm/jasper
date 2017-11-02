@@ -8,7 +8,9 @@ using Jasper.Bus.Transports.Core;
 
 namespace Jasper.Bus.Transports.New
 {
-    public class DurableWorkerQueue : WorkerQueue
+    public interface IDurableWorkerQueue : IWorkerQueue{}
+
+    public class DurableWorkerQueue : WorkerQueue, IDurableWorkerQueue
     {
         private readonly IPersistence _persistence;
 

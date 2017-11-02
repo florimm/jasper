@@ -5,7 +5,9 @@ using Jasper.Bus.Runtime.Invocation;
 
 namespace Jasper.Bus.Transports.New
 {
-    public class LightweightWorkerQueue : WorkerQueue
+    public interface ILightweightWorkerQueue : IWorkerQueue{}
+
+    public class LightweightWorkerQueue : WorkerQueue, ILightweightWorkerQueue
     {
         public LightweightWorkerQueue(CompositeLogger logger, IHandlerPipeline pipeline, CancellationToken cancellationToken) : base(logger, pipeline, cancellationToken)
         {

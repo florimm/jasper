@@ -10,6 +10,7 @@ using Jasper.Bus.Transports.Core;
 using Jasper.Bus.Transports.Durable;
 using Jasper.Bus.Transports.Lightweight;
 using Jasper.Bus.Transports.Loopback;
+using Jasper.Bus.Transports.New;
 using Jasper.Configuration;
 using Jasper.Conneg;
 using Jasper.Conneg.Json;
@@ -35,6 +36,9 @@ namespace Jasper.Bus
                 .Use<DurableTransport>();
 
             ForSingletonOf<ObjectPoolProvider>().Use<DefaultObjectPoolProvider>();
+
+            ForSingletonOf<ILightweightWorkerQueue>().Use<LightweightWorkerQueue>();
+            ForSingletonOf<IDurableWorkerQueue>().Use<DurableWorkerQueue>();
 
 
             For<IEnvelopeSender>().Use<EnvelopeSender>();
