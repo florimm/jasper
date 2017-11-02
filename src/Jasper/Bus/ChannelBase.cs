@@ -7,6 +7,7 @@ using Jasper.Util;
 
 namespace Jasper.Bus
 {
+    [Obsolete("Will go away w/ the transport overhaul")]
     public class Channel : ChannelBase
     {
         private readonly ITransport _transport;
@@ -22,6 +23,7 @@ namespace Jasper.Bus
         }
     }
 
+    [Obsolete("Will go away w/ the transport overhaul")]
     public abstract class ChannelBase : IChannel
     {
         private readonly SubscriberAddress _address;

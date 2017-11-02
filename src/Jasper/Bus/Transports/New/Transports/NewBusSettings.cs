@@ -12,6 +12,7 @@ namespace Jasper.Bus.Transports.New.Transports
             return TransportState.Enabled;
         }
 
+        // Ugh, will need to keep track of aliases in the UriLookup too. #sadtrombone
         public IList<Uri> Listeners { get; } = new List<Uri>();
 
 
@@ -25,5 +26,9 @@ namespace Jasper.Bus.Transports.New.Transports
         }
 
         // Duplicate, won't transfer over
+
+        public string ServiceName { get; set; }
+        public Uri DefaultChannelAddress { get; set; }
+        public readonly IList<SubscriberAddress> KnownSubscribers = new List<SubscriberAddress>();
     }
 }
