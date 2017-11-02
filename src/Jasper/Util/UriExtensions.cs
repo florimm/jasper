@@ -47,5 +47,16 @@ namespace Jasper.Util
         {
             return new UriBuilder(uri) { Host = Environment.MachineName }.Uri;
         }
+
+        public static Uri ToCanonicalTcpUri(this Uri uri)
+        {
+            if (uri.Scheme != Durable) throw new ArgumentOutOfRangeException(nameof(uri), "This only applies to Uri's with the scheme 'durable'");
+
+            var queueName = uri.QueueName();
+
+            return queueName == TransportConstants.Default
+                ? $"tcp://{uri.Host}:{uri.Port}/{Durable}".ToUri()
+                : $"tcp://{uri.Host}:{uri.Port}/{Durable}/{queueName}".ToUri();
+        }
     }
 }

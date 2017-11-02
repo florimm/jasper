@@ -55,5 +55,15 @@ namespace Jasper.Testing.Bus
             "tcp://localhost:2200".ToUri().IsDurable().ShouldBeFalse();
             "tcp://localhost:2200/replies".ToUri().IsDurable().ShouldBeFalse();
         }
+
+        [Fact]
+        public void converting_from_old_durable_scheme()
+        {
+            "durable://localhost:2200".ToUri().ToCanonicalTcpUri()
+                .ShouldBe("tcp://localhost:2200/durable".ToUri());
+
+            "durable://localhost:2200/one".ToUri().ToCanonicalTcpUri()
+                .ShouldBe("tcp://localhost:2200/durable/one".ToUri());
+        }
     }
 }

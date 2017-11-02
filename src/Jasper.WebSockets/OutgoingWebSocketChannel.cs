@@ -34,5 +34,10 @@ namespace Jasper.WebSockets
         {
             return _transport.SendToAll(envelope);
         }
+
+        public void Dispose()
+        {
+            // nothing
+        }
     }
 }

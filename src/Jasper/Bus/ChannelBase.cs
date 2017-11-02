@@ -64,5 +64,9 @@ namespace Jasper.Bus
         {
             return _address.ShouldSendMessage(messageType);
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

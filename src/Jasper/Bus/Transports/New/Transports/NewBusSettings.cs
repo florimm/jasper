@@ -30,5 +30,6 @@ namespace Jasper.Bus.Transports.New.Transports
         public string ServiceName { get; set; }
         public Uri DefaultChannelAddress { get; set; }
         public readonly IList<SubscriberAddress> KnownSubscribers = new List<SubscriberAddress>();
+        public string MachineName { get; set; }
     }
 }
