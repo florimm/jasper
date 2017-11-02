@@ -12,6 +12,7 @@ namespace Jasper.Bus.Transports.Core
     public class ListeningAgent : IDisposable
     {
         public int Port { get; }
+
         private readonly IReceiverCallback _callback;
         private readonly CancellationToken _cancellationToken;
         private readonly TcpListener _listener;
