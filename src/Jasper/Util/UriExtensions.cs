@@ -9,19 +9,17 @@ namespace Jasper.Util
 {
     public static class UriExtensions
     {
-        public const string Durable = "durable";
-
         public static string QueueName(this Uri uri)
         {
             if (uri == null) return null;
 
-            if (uri.Scheme == LoopbackTransport.ProtocolName && uri.Host != Durable)
+            if (uri.Scheme == LoopbackTransport.ProtocolName && uri.Host != TransportConstants.Durable)
             {
                 return uri.Host;
             }
 
             var lastSegment = uri.Segments.Skip(1).LastOrDefault();
-            if (lastSegment == Durable) return TransportConstants.Default;
+            if (lastSegment == TransportConstants.Durable) return TransportConstants.Default;
 
             return lastSegment ?? TransportConstants.Default;
         }
@@ -30,12 +28,12 @@ namespace Jasper.Util
 
         public static bool IsDurable(this Uri uri)
         {
-            if (uri.Scheme == LoopbackTransport.ProtocolName && uri.Host == Durable) return true;
+            if (uri.Scheme == LoopbackTransport.ProtocolName && uri.Host == TransportConstants.Durable) return true;
 
             var firstSegment = uri.Segments.Skip(1).FirstOrDefault();
             if (firstSegment == null) return false;
 
-            return Durable == firstSegment.TrimEnd('/');
+            return TransportConstants.Durable == firstSegment.TrimEnd('/');
         }
 
         public static Uri ToMachineUri(this Uri uri)
@@ -50,13 +48,13 @@ namespace Jasper.Util
 
         public static Uri ToCanonicalTcpUri(this Uri uri)
         {
-            if (uri.Scheme != Durable) throw new ArgumentOutOfRangeException(nameof(uri), "This only applies to Uri's with the scheme 'durable'");
+            if (uri.Scheme != TransportConstants.Durable) throw new ArgumentOutOfRangeException(nameof(uri), "This only applies to Uri's with the scheme 'durable'");
 
             var queueName = uri.QueueName();
 
             return queueName == TransportConstants.Default
-                ? $"tcp://{uri.Host}:{uri.Port}/{Durable}".ToUri()
-                : $"tcp://{uri.Host}:{uri.Port}/{Durable}/{queueName}".ToUri();
+                ? $"tcp://{uri.Host}:{uri.Port}/{TransportConstants.Durable}".ToUri()
+                : $"tcp://{uri.Host}:{uri.Port}/{TransportConstants.Durable}/{queueName}".ToUri();
         }
     }
 }

@@ -12,5 +12,6 @@ namespace Jasper.Bus.Transports.Core
         public static readonly Uri RepliesUri = "loopback://replies".ToUri();
         public static readonly Uri DelayedUri = "loopback://delayed".ToUri();
 
+        public const string Durable = "durable";
     }
 }
