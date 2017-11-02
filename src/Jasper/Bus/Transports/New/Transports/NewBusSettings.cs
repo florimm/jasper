@@ -5,6 +5,7 @@ using Jasper.Bus.Transports.Configuration;
 
 namespace Jasper.Bus.Transports.New.Transports
 {
+    // The idea here is that this will be merged into BusSettings
     public class NewBusSettings
     {
         public TransportState StateFor(string protocol)
@@ -26,7 +27,6 @@ namespace Jasper.Bus.Transports.New.Transports
         }
 
         // Duplicate, won't transfer over
-
         public string ServiceName { get; set; }
         public Uri DefaultChannelAddress { get; set; }
         public readonly IList<SubscriberAddress> KnownSubscribers = new List<SubscriberAddress>();

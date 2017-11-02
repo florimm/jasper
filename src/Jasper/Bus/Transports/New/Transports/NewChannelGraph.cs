@@ -49,6 +49,7 @@ namespace Jasper.Bus.Transports.New.Transports
 
         public string[] ValidTransports => _transports.Keys.ToArray();
 
+        // TODO -- get rid of this in favor of just using a Channels property
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
@@ -63,6 +64,7 @@ namespace Jasper.Bus.Transports.New.Transports
         {
             get
             {
+                // TODO -- make this UriLookup aware right here!!!
                 assertValidTransport(uri);
 
                 return _channels.GetOrAdd(uri, u => new Lazy<IChannel>(() => buildChannel(u))).Value;

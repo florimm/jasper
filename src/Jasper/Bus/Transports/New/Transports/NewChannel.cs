@@ -6,6 +6,7 @@ using Jasper.Util;
 
 namespace Jasper.Bus.Transports.New.Transports
 {
+    // For *now*, saying that there'll always be a static channel for every outgoing destination. Not a huge problem I believe
     public class NewChannel : IChannel
     {
         private readonly SubscriberAddress _address;
