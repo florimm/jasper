@@ -65,5 +65,10 @@ namespace Jasper.Bus.Transports.New
         {
             _agent?.Dispose();
         }
+
+        public void Start()
+        {
+            _agent.Start(this);
+        }
     }
 }
